@@ -1,0 +1,15 @@
+<!--pages/my/my.wxml-->
+<form bindsubmit="handlerSubmit">
+  <!--账号-->
+  <label class="loginLab">账号</label> 
+  <input class="inputText" placeholder="请输入账号" name="account"  /> 
+ <!--  bindchange="getAccount" -->
+ <!--密码-->
+  <label class="loginLab">密码</label> 
+  <input class="inputText" password="true" placeholder="请输入密码" name="pwd"  /> 
+ <!-- bindchange="getPwd" -->
+ <!--按钮-->
+  <button class="regBtn" type="primary" bindtap="reg" form-type="submit">注册</button> 
+  <button class="loginBtn" type="primary" bindtap="login" form-type="submit">登录</button> 
+
+ </form>

@@ -1,0 +1,65 @@
+<!-- vant引入搜索框 -->
+    <van-search value="{{value}}" placeholder="请输入搜索关键词" show-action bind:search="onSearch" data-item="{{item}}" bindfocus="inputFocus" bind:cancel="onCancel" />
+
+<!-- 主页列表 -->
+<view wx:if="{{searchShow}}" wx:for="{{list}}" wx:key="index" style="margin-top:20rpx"bindtap="choose"  data-item="{{item}}" data-id="{{id}}" data-number="{{index}}">
+<!-- 大盒子列表 -->
+<view style="display:flex;flex-direction: row; margin-left: 50rpx;">
+<!-- 歌手介绍图 -->
+<view>
+ <image style="width:150rpx;height:150rpx;border-radius:30rpx" src="{{item.content}}"></image>
+</view>
+<!-- 歌曲 歌手名 时长 -->
+<view style="display:flex;flex-direction: column;margin-left:30rpx;font-size:11pt;width:420rpx;">
+<text style="margin-bottom:15rpx">{{item.musicName}}</text>
+<text style="font-size: 10pt;color:#7f7f7f;">{{item.name}}</text>
+<text style="margin-top:5px; font-size: 9pt;color:#7f7f7f;">{{item.time}}</text>
+</view>
+<!-- 详情>> -->
+<view catchtap="listen"data-id="{{item._id}}" style="font-size: 10pt; color: #7f7f7f; margin-top: 75rpx; width: 45rpx; height: 45rpx; display: block; box-sizing: border-box">
+   >>
+</view>
+</view>
+</view>
+
+<!-- 搜索列表 -->
+<view wx:if="{{!searchShow}}" wx:for="{{searchList}}" wx:key="index" style="margin-top:20rpx"bindtap="searchChoose"  data-item="{{item}}" data-id="{{id}}" data-number="{{index}}">
+<!-- 大盒子列表 -->
+<view style="display:flex;flex-direction: row; margin-left: 50rpx;">
+<!-- 歌手介绍图 -->
+<view>
+ <image style="width:150rpx;height:150rpx;border-radius:30rpx" src="{{item.content}}"></image>
+</view>
+<!-- 歌曲 歌手名 时长 -->
+<view style="display:flex;flex-direction: column;margin-left:30rpx;font-size:11pt;width:420rpx;">
+<text style="margin-bottom:15rpx">{{item.musicName}}</text>
+<text style="font-size: 10pt;color:#7f7f7f;">{{item.name}}</text>
+<text style="margin-top:5px; font-size: 9pt;color:#7f7f7f;">{{item.time}}</text>
+</view>
+<!-- 详情>> -->
+<view catchtap="listen"data-id="{{item._id}}" style="font-size: 10pt; color: #7f7f7f; margin-top: 75rpx; width: 45rpx; height: 45rpx; display: block; box-sizing: border-box">
+   >>
+</view>
+</view>
+</view>
+
+<!-- 下方播放 -->
+<view class="bottom" style="display: flex; flex-direction: row;">
+<!-- 歌手介绍图 -->
+<view wx:key="index"wx:key="index" style="margin-left:20rpx;margin-top:10rpx;">
+    <image style="width:120rpx;height:120rpx;border-radius:50%" src="{{listShow.content}}"></image>
+</view>
+<!-- 歌名 歌手名 -->
+<view style="display: flex;flex-direction: column; margin-left:30rpx;width:400rpx;">
+<view style="margin-top:15rpx;font-size: 10pt;"> <text wx:key="index">{{listShow.musicName}}</text></view>
+<view> <text wx:key="index"style="font-size: 8pt;color:#7f7f7f;">{{listShow.name}}</text></view>  
+</view>
+<!-- 播放按钮 -->
+<view style="display: flex;margin-top:55rpx;position:relative;left:-100rpx;">
+    <image bindtap="lastMusic" src="../../images/last.png" class="playBlock" style="opacity:0.57"></image>
+    <image wx:if="{{!play}}" bindtap="play"class="playBlock" src="../../images/play.png"></image>
+    <image  wx:if="{{play}}" bindtap="pause"class="playBlock" src="../../images/pause.png"> </image>
+    <image data-item="{{item}}" bindtap="nextMusic" src="../../images/next.png"class="playBlock" style="opacity:0.57;"></image>
+</view>
+</view>
+

@@ -1,0 +1,14 @@
+/* pages/music/music.wxss */
+.playBlock
+{
+    width:60rpx;
+    height:60rpx;
+}
+.bottom
+{
+    position:fixed;
+    width: 100%;
+    bottom:0;
+    border-top:1rpx #c0c0c0 solid;
+    background-color: white;
+}

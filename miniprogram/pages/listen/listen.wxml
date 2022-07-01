@@ -1,0 +1,29 @@
+<!--pages/listen/listen.wxml-->
+<swiper style="height:700rpx" indicator-dots="true" 	indicator-active-color="black"
+autoplay="true" circular="true">
+  <swiper-item wx:for="{{list.content}}" style="height:700rpx" wx:key="index">
+  <image src="{{item}}" style="width:100%;height:700rpx"></image>
+  </swiper-item>
+  <swiper-item>
+  <image src="../../images/1.jpg" style="width:100%;height:700rpx"></image>
+  </swiper-item>
+</swiper>
+
+
+<view class="bottom" style="display: flex; flex-direction: row;">
+<!-- 歌手介绍图 -->
+<view wx:key="index" wx:for="{{list.content}}" wx:key="index" style="margin-left:20rpx">
+    <image style="width:120rpx;height:120rpx;border-radius:50%" src="{{item}}"></image>
+</view>
+<!-- 歌名 歌手名 -->
+<view style="display: flex;flex-direction: column; margin-left:30rpx;">
+<view style="margin-top:15rpx;font-size: 10pt;"> <text wx:key="index" wx:for="{{list.musicName}}">{{item}}</text></view>
+<view> <text wx:key="index" wx:for="{{list.name}}"style="font-size: 8pt;color:#7f7f7f; ">{{item}}</text></view>  
+</view>
+<!-- 播放按钮 -->
+<view style="display: flex;margin-top:15rpx;margin-left:30rpx;">
+    <image wx:if="{{!play}}" bindtap="play" style="width:100rpx;height:100rpx" src="../../images/play.png"></image>
+    <image  wx:if="{{play}}" bindtap="pause" style="width:100rpx;height:100rpx" src="../../images/pause.png"> </image>
+</view>
+</view>
+
